@@ -1,10 +1,10 @@
-import api from "../../services/api";
+import api from "../../../services/api";
 
-import HeaderComponent from "../../conponents/HeaderComponent";
-import FooterComponent from "../../conponents/FooterComponentet";
+import HeaderComponent from "../../../conponents/HeaderComponent"
+import FooterComponent from "../../../conponents/FooterComponentet";
 import { Component } from "react";
 
-class Contato extends Component{
+class IndexContato extends Component{
 
     state ={
         contatos: []
@@ -87,4 +87,4 @@ class Contato extends Component{
 }
 
 
-export default Contato;
+export default IndexContato;

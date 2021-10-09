@@ -1,10 +1,10 @@
-import api from "../../services/api";
+import api from "../../../services/api";
 
-import HeaderComponent from "../../conponents/HeaderComponent";
-import FooterComponent from "../../conponents/FooterComponentet";
+import HeaderComponent from "../../../conponents/HeaderComponent";
+import FooterComponent from "../../../conponents/FooterComponentet";
 import { Component } from "react";
 
-class Curso extends Component{
+class ListCurso extends Component{
 
     state ={
         cursos: []
@@ -43,4 +43,4 @@ class Curso extends Component{
 }
 
 
-export default Curso;
+export default ListCurso;
