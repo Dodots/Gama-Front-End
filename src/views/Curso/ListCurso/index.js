@@ -1,8 +1,9 @@
 import api from "../../../services/api";
 
-import HeaderComponent from "../../../conponents/HeaderComponent";
-import FooterComponent from "../../../conponents/FooterComponentet";
-import { Component } from "react";
+import HeaderComponent from '../../../conponents/HeaderComponent';
+import FooterComponent from '../../../conponents/FooterComponentet';
+import { Component } from 'react';
+import { Container, ContactSection } from './style';
 
 class ListCurso extends Component{
 
@@ -21,21 +22,27 @@ class ListCurso extends Component{
         return(
             <>
                 <HeaderComponent/>
-                <div>
-                    <h1>Listar Cursos</h1>
+                <Container>
+                <div className="first-section">
+                    <h1>Lista de Cursos</h1>
+
+                    <ContactSection>
                     {cursos.map(curso => (
-                        <li key={curso.id}>
-                            <h2>
-                                <strong>Título do curso: </strong>
-                                {curso.nome} 
-                            </h2>
-                            <p>
-                                <strong>Categoria: </strong>
-                                {curso.categoria}
-                            </p>
-                        </li>
+                        <div className="card" key={curso.id}>
+                            <div>
+                                <h2>
+                                    { curso.nome} 
+                                </h2>
+                                <p>
+                                    { curso.categoria}
+                                </p>
+                            </div>
+                        </div>
                     ))}
+                    </ContactSection>
+
                 </div>
+                </Container>
                 <FooterComponent/>
             </>
         )

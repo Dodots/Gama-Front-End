@@ -1,15 +1,19 @@
 import { Link } from 'react-router-dom';
+import { NavStyled } from './style'
+import Logo from '../../assets/img/img.png'
 
 function Header(){
     return (
-        <nav>
-            <h1>Topo</h1>
-            <Link to="/">Home</Link>
-            <Link to="/cursos">Curso</Link>
-            <Link to="/contatos">Contatos</Link>
-            <Link to="/Addcursos">AddCurso</Link>
-            <Link to="/Addcontatos">AddContatos</Link>
-        </nav>
+        <NavStyled>
+            <img src={ Logo } alt="Logotipo" />
+            <div  className="link-content">
+                <Link to="/">Home</Link>
+                <Link to="/cursos">Curso</Link>
+                <Link to="/contatos">Contatos</Link>
+                <Link to="/Addcursos">Adicionar Curso</Link>
+                <Link to="/Addcontatos">Adicionar Contatos</Link>
+            </div>
+        </NavStyled>
     )
 }
 

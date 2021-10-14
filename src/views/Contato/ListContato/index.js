@@ -3,6 +3,7 @@ import api from "../../../services/api";
 import HeaderComponent from "../../../conponents/HeaderComponent"
 import FooterComponent from "../../../conponents/FooterComponentet";
 import { Component } from "react";
+import { Container, ContactSection } from './style';
 
 class IndexContato extends Component{
 
@@ -21,65 +22,48 @@ class IndexContato extends Component{
         return(
             <>
                 <HeaderComponent/>
-                <div>
-                    <h1>Listar Cursos</h1>
+                <Container>
+                <div className="first-section">
+                    <h1>Lista de Contatos</h1>
+
+                    <ContactSection>
                     {contatos.map(contato => (
-                        <li key={contato.id}>
-                            <h2>
-                                <strong>Nome do Contato: </strong>
-                                {contato.nome} 
-                            </h2>
-                            <p>
-                                <strong>CPF: </strong>
-                                {contato.cpf}
-                            </p>
-                            <p>
-                                <strong>CEP: </strong>
-                                {contato.cep}
-                            </p>
-                            <p>
-                                <strong>Lougradouro: </strong>
-                                {contato.lougradouro}
-                            </p>
-                            <p>
-                                <strong>Numero: </strong>
-                                {contato.numero}
-                            </p>
-                            <p>
-                                <strong>Bairro: </strong>
-                                {contato.bairro}
-                            </p>
-                            <p>
-                                <strong>Cidade: </strong>
-                                {contato.cidade}
-                            </p>
-                            <p>
-                                <strong>UF: </strong>
-                                {contato.uf}
-                            </p>
-                            <p>
-                                <strong>E-mail: </strong>
-                                {contato.email}
-                            </p>
-                            <p>
-                                <strong>Telefone: </strong>
-                                {contato.telefone}
-                            </p>                            
-                            <p>
-                                <strong>Whatsapp: </strong>
-                                {contato.whatsapp}
-                            </p>                            
-                            <p>
-                                <strong>Status: </strong>
-                                {contato.status}
-                            </p>
-                            <p>
-                                <strong>Curso ID: </strong>
-                                {contato.curso_id}
-                            </p>
-                        </li>
+                        <div className="card" key={contato.id}>
+                            <div>
+                                <h2>
+                                    {contato.nome} 
+                                </h2>
+                                <p>
+                                    CPF:
+                                    {contato.cpf}
+                                </p>
+                                <p>
+                                    <strong>UF: </strong>
+                                    {contato.uf}
+                                </p>
+                                <p>
+                                    <strong>E-mail: </strong>
+                                    {contato.email}
+                                </p>
+                                <p>
+                                    <strong>Telefone: </strong>
+                                    {contato.telefone}
+                                </p>                                                     
+                                <p>
+                                    <strong>Status: </strong>
+                                    {contato.status}
+                                </p>
+                                <p>
+                                    <strong>Curso ID: </strong>
+                                    {contato.curso_id}
+                                </p>
+                            </div>
+                        </div>
                     ))}
+                    </ContactSection>
                 </div>
+                
+                </Container>
                 <FooterComponent/>
             </>
         )

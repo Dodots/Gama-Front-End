@@ -1,10 +1,10 @@
-
+import { FooterStyled } from './style'
 
 function Footer(){
     return (
-        <footer>
+        <FooterStyled>
             <p>Rodapé</p>
-        </footer>
+        </FooterStyled>
     )
 }
 

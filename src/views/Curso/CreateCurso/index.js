@@ -2,6 +2,7 @@ import api from "../../../services/api";
 import { useState, useCallback} from 'react';
 import HeaderComponent from "../../../conponents/HeaderComponent"
 import FooterComponent from "../../../conponents/FooterComponentet";
+import { Container, ContactSection } from './style';
 
 function CreateCurso() {
 
@@ -27,39 +28,49 @@ function CreateCurso() {
         return (
             <>
             <HeaderComponent/>
-            <div>
-                <h1>Adicionar Cursos</h1>
-            </div>
-            <div className="section">
-                {!submited ? (
-                <>
-                    <form onSubmit={leadSubmit}>
-                        <input
-                            type="text"
-                            placeholder="nome do curso"
-                            onChange={e => setData({...data, nome: e.target.value })}
-                        />
+            <Container>
+            <div className="first-section">
+
+                <div>
+                    <h1>Adicionar Cursos</h1>
+                </div>
+
+                <ContactSection>
+                <div className="section">
+                    {!submited ? (
+                    <>
                         
-                        <select value={categorias} onChange={e => setData({...data, categoria: e.target.value })}>
-                            {Object.keys(categorias).map(key => (
-                            <option key={key} value={key}>
-                                {categorias[key]}
-                            </option>
-                            ))}
-                        </select>
+                        <form onSubmit={leadSubmit}>
+                            
+                            <input
+                                type="text"
+                                placeholder="nome do curso"
+                                onChange={e => setData({...data, nome: e.target.value })}
+                            />
+                            
+                            <select value={categorias} onChange={e => setData({...data, categoria: e.target.value })}>
+                                {Object.keys(categorias).map(key => (
+                                <option key={key} value={key}>
+                                    {categorias[key]}
+                                </option>
+                                ))}
+                            </select>
 
 
-                    <input type="submit" value="Cadastrar" />
-                    </form>
-                </>
-                    ) : (
-                <>
-                    <div>
-                    <h1> Seu curso foi realizada com sucesso!</h1>
-                    </div>
-                </>
-                )}
+                            <button type="submit">Cadastrar</button>
+                        </form>
+                    </>
+                        ) : (
+                    <>
+                        <div>
+                            <h2> Seu curso foi realizada com sucesso!</h2>
+                        </div>
+                    </>
+                    )}
+                </div>
+                </ContactSection>
             </div>
+            </Container>
             <FooterComponent/>
             </>
         )
