@@ -9,6 +9,7 @@ export const Container = styled.section`
     }
 
     h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 30px;
         margin-bottom: 15px;
     }
@@ -39,7 +40,12 @@ export const ContactSection = styled.section`
     }
 
     h2{
-        font-size: 15pt;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 17pt;
         margin-bottom: 10px;
+    }
+    p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 10pt;
     }
 `

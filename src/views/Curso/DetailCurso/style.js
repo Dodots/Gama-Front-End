@@ -9,9 +9,25 @@ export const Container = styled.section`
     }
 
     h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 30px;
         margin-bottom: 15px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    button{       
+        margin: 5px;
+        margin-bottom: 15px;
+        height: 40px;
+        width: 100px;
+        border-radius: 5px;
+        background-color: #0C6DA9;
+        color: white;
+        border: 0;
+        cursor: pointer;
+
+        :hover{
+          background-color: #00BFFF;
+        }
     }
 `
 
@@ -28,28 +44,24 @@ export const ContactSection = styled.section`
     .card{
         display: flex;
         justify-content: center;
-        width: 300px;
-        height: 250px;
+        width: 250px;
+        height: 150px;
         align-items: center;
-        text-align: left;
+        text-align: center;
         margin: 13px;
         border: solid;
         border-color: white;
         border-radius: 20px;
         border-width: 2px;
-        padding: 10px;
     }
 
     h2{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 15pt;
-        margin: 5px;
-        margin-bottom: 9px;
+        font-size: 17pt;
+        margin-bottom: 10px;
     }
-
     p{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin: 5px;
-        margin-bottom: 9px;
+        font-size: 10pt;
     }
 `

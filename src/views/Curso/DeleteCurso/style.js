@@ -12,47 +12,44 @@ export const Container = styled.section`
         font-size: 30px;
         margin-bottom: 15px;
     }
-
-    .hidden {
-        display: none; 
-    }
 `
 
 export const ContactSection = styled.section`
 
-    
-
 
     .section{
-        display: flex;
+	    display: flex;
+	    flex-direction: column;
         align-items: center;
-        text-align: center;
-        justify-content: center;
+        
     
         h2{
-        text-align: center;
-        margin: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20pt;
+            margin: 10px;
         }
 
-        form{
+        p{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15pt;
+            margin-left: 55px;
+            margin-right: 55px;
+            margin-bottom: 10px;
+        }
+
+        div{
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             justify-content: center;
-            padding: 5% 7% 5% 7%;
             background-color: rgba(30,144,255,0.2);
             border-radius: 20px;
-            width: 500px;
+            margin: 20px;
+            width: 400px;
+            height: 200px;
         }
         
-        input{
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            width: 300px;
-            color: black;
-        }
         select{
             margin: 10px;
             height: 40px;
@@ -65,13 +62,13 @@ export const ContactSection = styled.section`
             height: 40px;
             width: 100px;
             border-radius: 5px;
-            background-color: #0C6DA9;
+            background-color: red;
             color: white;
             border: 0;
             cursor: pointer;
 
             :hover{
-                background-color: #00BFFF;
+                background-color: #a30000;
             }
         }
     }

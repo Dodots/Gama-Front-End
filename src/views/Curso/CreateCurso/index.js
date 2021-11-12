@@ -15,13 +15,15 @@ function CreateCurso() {
         POS_GRADUACAO: "Pós Graduação",
         EDUCACAO_BASICA: "Educação Básica"
     }
+    const hidden = "";
 
     const leadSubmit = useCallback((e) => {
         e.preventDefault();
         api.post('/cursos', data).then(
             response => {
             if (response.status === 201) setSubmited(true)
-            }
+            
+            }         
         )
         }, [data]);
 

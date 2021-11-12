@@ -2,52 +2,59 @@ import api from "../../../services/api";
 
 import HeaderComponent from '../../../conponents/HeaderComponent';
 import FooterComponent from '../../../conponents/FooterComponentet';
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, ContactSection } from './style';
+import { useHistory } from "react-router-dom";
 
-class ListCurso extends Component{
+function ListCurso() {
+    const [cursos, setcursos] = useState([])
+    const history = useHistory()
 
-    state ={
-        cursos: []
-    }
+    useEffect(() => {
+        api.get('/cursos').then(
+            response => {
+                setcursos(response.data)
+            }
+        )
+    }, [])
 
-    async componentDidMount(){
-        const response = await api.get('cursos');
 
-        this.setState ({ cursos: response.data });
-    }
-
-    render(){
-        const { cursos } = this.state;
-        return(
-            <>
-                <HeaderComponent/>
-                <Container>
+    return (
+        <>
+            <HeaderComponent />
+            <Container>
                 <div className="first-section">
                     <h1>Lista de Cursos</h1>
 
                     <ContactSection>
-                    {cursos.map(curso => (
-                        <div className="card" key={curso.id}>
-                            <div>
-                                <h2>
-                                    { curso.nome} 
-                                </h2>
-                                <p>
-                                    { curso.categoria}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+                        {cursos.map(curso => (
+                            <div className="card" key={curso.id}>
+                                <div>
+                                    <h2>
+                                        {curso.nome}
+                                    </h2>
+                                    <p>
+                                        {curso.categoria}
+                                    </p>
+                                </div>
+
+                                <button
+                                    className="card__btn"
+                                    onClick={() => history.push("/cursos/detail/" + curso.id)}>
+                                    Mais Informações
+                                </button>
+                            </div>                           
+                        ))}
+
                     </ContactSection>
 
                 </div>
-                </Container>
-                <FooterComponent/>
-            </>
-        )
-    }
+            </Container>
+            <FooterComponent />
+        </>
+    )
 }
+
 
 
 export default ListCurso;

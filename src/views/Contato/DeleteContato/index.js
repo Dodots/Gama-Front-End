@@ -2,96 +2,93 @@ import api from "../../../services/api";
 
 import HeaderComponent from "../../../conponents/HeaderComponent"
 import FooterComponent from "../../../conponents/FooterComponentet";
-import { Component } from "react";
-import { Container, ContactSection } from '../ListContato/style';
+import { useState, useEffect } from "react";
+import { Container, ContactSection } from './style';
 
-class IndexContato extends Component{
+function DeleteContato(props){
+    const [contato, setContato] = useState();
+    const {id} = props.match.params
 
-    state ={
-        contatos: []
-    }
+    useEffect(() => {
+        api.get(`contatos/${id}`).then(
+            response => {
+                setContato(response.data)
+            }
+        )
+    }, [id])
 
-    async componentDidMount(){
-        const response = await api.get('contatos');
-
-        this.setState ({ contatos: response.data });
-    }
-
-    render(){
-        const { contatos } = this.state;
         return(
             <>
                 <HeaderComponent/>
                 <Container>
                 <div className="first-section">
-                    <h1>Listar Contatos</h1>
+                    <h1>Contato</h1>
 
                     <ContactSection>
-                    {contatos.map(contato => (
-                        <div className="card" key={contato.id}>
+                        <div className="card" key={contato?.id}>
                             <h2>
-                                <strong>Nome: </strong>
-                                {contato.nome} 
+                                {contato?.nome} 
                             </h2>
                             <p>
                                 <strong>CPF: </strong>
-                                {contato.cpf}
+                                {contato?.cpf}
                             </p>
                             <p>
                                 <strong>CEP: </strong>
-                                {contato.cep}
+                                {contato?.cep}
                             </p>
                             <p>
                                 <strong>Lougradouro: </strong>
-                                {contato.lougradouro}
+                                {contato?.lougradouro}
                             </p>
                             <p>
                                 <strong>Numero: </strong>
-                                {contato.numero}
+                                {contato?.numero}
                             </p>
                             <p>
                                 <strong>Bairro: </strong>
-                                {contato.bairro}
+                                {contato?.bairro}
                             </p>
                             <p>
                                 <strong>Cidade: </strong>
-                                {contato.cidade}
+                                {contato?.cidade}
                             </p>
                             <p>
                                 <strong>UF: </strong>
-                                {contato.uf}
+                                {contato?.uf}
                             </p>
                             <p>
                                 <strong>E-mail: </strong>
-                                {contato.email}
+                                {contato?.email}
                             </p>
                             <p>
                                 <strong>Telefone: </strong>
-                                {contato.telefone}
-                            </p>                            
+                                {contato?.telefone}
+                            </p>                        
                             <p>
                                 <strong>Whatsapp: </strong>
-                                {contato.whatsapp}
-                            </p>                            
+                                {contato?.whatsapp}
+                            </p>                           
                             <p>
                                 <strong>Status: </strong>
-                                {contato.status}
+                                {contato?.status}
                             </p>
                             <p>
                                 <strong>Curso ID: </strong>
-                                {contato.curso_id}
+                                {contato?.curso_id}
                             </p>
+                            
                         </div>
-                    ))}
+                        <button type="submit">Deletar</button>
+                        
                     </ContactSection>
-                </div>
-                
+                </div>                
                 </Container>
                 <FooterComponent/>
             </>
         )
-    }
+    
 }
 
 
-export default IndexContato;
+export default DeleteContato;
