@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 export const NavStyled = styled.nav`
     display: flex;
-    padding: 12px 40px;
     align-items: center;
     justify-content: center;
+    justify-content: space-evenly;
+    
+
+    .divImg{
+        width: 80px;
+    }
 
     img{
         width: 150px;
@@ -13,14 +18,18 @@ export const NavStyled = styled.nav`
     }
 
     .link-content{
+        align-items: self-start;
         margin-right: 40px;
+        width: 600px;
 
         a{
             margin: 12px;
             text-decoration: none;
             background-color: #0C6DA9;
             color: #fff;
-            padding: 8px;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
             border-radius: 5px;
             transition: 0.3s;
 

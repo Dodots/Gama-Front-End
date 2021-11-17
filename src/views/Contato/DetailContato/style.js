@@ -16,18 +16,19 @@ export const Container = styled.section`
         margin-bottom: 15px;
     }
     button{       
-        margin: 5px;
+        margin: 5px;  
         margin-bottom: 15px;
-        height: 40px;
-        width: 100px;
-        border-radius: 5px;
-        background-color: #0C6DA9;
-        color: white;
+        width: 90px;
+        height: 45px;
         border: 0;
+        border-radius: 5px;
         cursor: pointer;
+        font-size: 1em;
+        background-color:  #0003;
+        transition: 0.3s;
 
         :hover{
-          background-color: #00BFFF;
+          background-color: #00000087;
         }
     }
 `
@@ -41,27 +42,31 @@ export const ContactSection = styled.section`
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 25px;
+    max-height: 76%;
+    min-width: 300px;
+
+    .divConteudo{
+        height: 400px;
+        display: grid;
+    }
 
     .card{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 400px;
-        height: 600px;
+        display: grid;
+        align-content: space-between;
+        width: auto;
+        height: auto;
         align-items: center;
         text-align: left;
         margin: 13px;
-        border: solid;
-        border-color: white;
-        border-radius: 20px;
-        border-width: 2px;
         padding: 10px;
     }
 
     h2{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 20pt;
-        margin: 10px;
+        text-align: center;
+        margin-bottom: 1em;
+
     }
 
     p{

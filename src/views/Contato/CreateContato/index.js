@@ -2,15 +2,18 @@ import api from "../../../services/api";
 import { useState, useCallback, useEffect } from 'react';
 import HeaderComponent from "../../../conponents/HeaderComponent"
 import FooterComponent from "../../../conponents/FooterComponentet";
+import { useHistory } from "react-router-dom";
 import { Container, ContactSection } from './style';
+import { toast } from 'react-toastify';
 
-function CreateContato() {
-
+function CreateContato(){
     const [data, setData] = useState({})
     const [submited, setSubmited] = useState(false)
     const [cursos, setCursos] = useState([])
+    const history = useHistory()
 
     const status = {
+        VAZIO: " ",
         NOVO: "Novo",
         EM_ATENDIMENTO: "Em Atendimento",
         CONTRATADO: "Contratado",
@@ -21,21 +24,23 @@ function CreateContato() {
         api.get('/cursos').then(
             response => {
                 setCursos(response.data)
-                console.log(response.data)
             }
         )
     }, [])
-
-    
 
     const leadSubmit = useCallback((e) => {
         e.preventDefault();
         api.post('/contatos', data).then(
             response => {
-                if (response.status === 201) setSubmited(true)
-            }
+                toast.success("Contato criado com sucesso!",{
+                    onClose :() => history.push("/contatos")
+                })
+            }            
         )
-    }, [data]);
+        .catch(e => {
+            toast.error('Contato não foi criado!')
+        })
+    }, [data]);    
 
     return (
         <>
@@ -129,7 +134,7 @@ function CreateContato() {
                                             />
                                             <div className="divStatus">
                                                 <p>Status:</p>
-                                                <select value={status} onChange={e => setData({ ...data, status: e.target.value })}>
+                                                <select defaultValue={status} onChange={e => setData({ ...data, status: e.target.value })}>
                                                     {Object.keys(status).map(key => (
                                                         <option key={key} value={key}>
                                                             {status[key]}

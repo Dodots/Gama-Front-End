@@ -11,6 +11,7 @@ export const Container = styled.section`
     h1{
         font-size: 30px;
         margin-bottom: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     .hidden {
@@ -19,10 +20,6 @@ export const Container = styled.section`
 `
 
 export const ContactSection = styled.section`
-
-    
-
-
     .section{
         display: flex;
         align-items: center;
@@ -40,8 +37,8 @@ export const ContactSection = styled.section`
             align-items: center;
             text-align: center;
             justify-content: center;
-            padding: 5% 7% 5% 7%;
-            background-color: rgba(30,144,255,0.2);
+            padding: 5% 5% 5% 5%;
+            background-color: rgba(30, 144, 255, 0.2);
             border-radius: 20px;
             width: 500px;
         }

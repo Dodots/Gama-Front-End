@@ -5,11 +5,13 @@ export const Container = styled.section`
 
     .first-section{
         text-align: center;
+        min-height: 60vh;
     }
 
     h1{
         font-size: 30px;
         margin-bottom: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 `
 

@@ -6,6 +6,7 @@ export const Container = styled.section`
 
     .first-section{
         text-align: center;
+        height: 60vh;
     }
 
     h1{
@@ -14,19 +15,21 @@ export const Container = styled.section`
         margin-bottom: 15px;
     }
 
-    button{       
-        margin: 5px;
+    button{
+        margin: 5px;  
         margin-bottom: 15px;
-        height: 40px;
-        width: 100px;
-        border-radius: 5px;
-        background-color: #0C6DA9;
-        color: white;
+        width: 90px;
+        height: 45px;
         border: 0;
+        border-radius: 5px;
         cursor: pointer;
+        font-size: 1em;
+        background-color:  #0003;
+
+        transition: 0.3s;
 
         :hover{
-          background-color: #00BFFF;
+          background-color: #00000087;
         }
     }
 `
@@ -36,12 +39,11 @@ export const ContactSection = styled.section`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: rgba(30,144,255,0.2);
     padding: 30px;
     border-radius: 20px;
-    margin-bottom: 25px;
 
-    .card{
+    .card{       
+        background-color: rgba(30,144,255,0.2);
         display: flex;
         justify-content: center;
         width: 250px;

@@ -5,9 +5,12 @@ import FooterComponent from '../../../conponents/FooterComponentet';
 import { useEffect, useState } from 'react';
 import { Container, ContactSection } from './style';
 import { useHistory } from "react-router-dom";
+import Lottie from 'react-lottie';
+import animation from '../../../assets/animation/78259-loading.json';
 
 function DetailCurso(props) {
     const [curso, setcursos] = useState([])
+    const [load, setLoad] = useState([false])
     const { id } = props.match.params
     const history = useHistory()
 
@@ -15,10 +18,34 @@ function DetailCurso(props) {
         api.get(`cursos/${id}`).then(
             response => {
                 setcursos(response.data)
+                setLoad(false)
             }
         )
     }, [id])
 
+    if(load){
+        const defaultOptions = {
+            loop: true,
+            autoplay: true,
+            animationData: animation
+        }
+        
+        return (
+            <>
+                <HeaderComponent />
+                <Container>
+                <div>
+                    <Lottie
+                        options={defaultOptions}
+                        width={200}
+                        height={200}
+                    />
+                </div>
+                </Container>
+                <FooterComponent />
+            </>
+        );
+    }
 
     return (
         <>

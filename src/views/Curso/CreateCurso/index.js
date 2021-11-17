@@ -1,31 +1,41 @@
-import api from "../../../services/api";
+import { Container, ContactSection } from './style';
+import { toast } from 'react-toastify';
+import { useHistory } from "react-router-dom";
 import { useState, useCallback} from 'react';
+
+import api from "../../../services/api";
 import HeaderComponent from "../../../conponents/HeaderComponent"
 import FooterComponent from "../../../conponents/FooterComponentet";
-import { Container, ContactSection } from './style';
+
+
 
 function CreateCurso() {
-
     const [data, setData] = useState({})
     const [submited, setSubmited] = useState(false)
+    const history = useHistory()
 
     const categorias = {
+        vazio: " ",
         EDUCACAO_DISTANCIA: "Educação a Distância",
         GRADUACAO: "Graduação",
         POS_GRADUACAO: "Pós Graduação",
         EDUCACAO_BASICA: "Educação Básica"
     }
-    const hidden = "";
 
     const leadSubmit = useCallback((e) => {
         e.preventDefault();
         api.post('/cursos', data).then(
             response => {
-            if (response.status === 201) setSubmited(true)
-            
-            }         
+                setSubmited(true)
+                toast.success("Curso criado com sucesso!",{
+                    onClose :() => history.push("/cursos")
+                })
+            }            
         )
-        }, [data]);
+        .catch(e => {
+            toast.error('Campo inválido ou Curso existente')
+        })
+    }, [data]);
 
         return (
             <>
@@ -46,26 +56,24 @@ function CreateCurso() {
                             
                             <input
                                 type="text"
-                                placeholder="nome do curso"
+                                placeholder="nome"
                                 onChange={e => setData({...data, nome: e.target.value })}
                             />
                             
-                            <select value={categorias} onChange={e => setData({...data, categoria: e.target.value })}>
+                            <select defaultValue={categorias} placeholder="Categoria" onChange={e => setData({...data, categoria: e.target.value })}>
                                 {Object.keys(categorias).map(key => (
                                 <option key={key} value={key}>
-                                    {categorias[key]}
+                                    {categorias[key.valueOf()]}
                                 </option>
                                 ))}
                             </select>
-
-
                             <button type="submit">Cadastrar</button>
                         </form>
                     </>
                         ) : (
                     <>
                         <div>
-                            <h2> Seu curso foi realizada com sucesso!</h2>
+                            <h2>Curso cadastrado!</h2>
                         </div>
                     </>
                     )}
